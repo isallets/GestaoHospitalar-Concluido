@@ -205,12 +205,12 @@ public class GerenciaMedicos {
     
     public Medico loginMedico() {
         System.out.print("Digite o CRM do médico: ");
-        String crm = ent.nextLine(); // Captura a entrada do usuário
+        String crm = ent.nextLine(); 
 
         for (Medico medico : medicos) {
             if (medico != null && medico.getCrm().equals(crm)) {
                 System.out.println("Bem-vindo, Dr(a). " + medico.getNome() + "!");
-                return medico; // Retorna o médico logado
+                return medico;
             }
         }
 

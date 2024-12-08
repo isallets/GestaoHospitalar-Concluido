@@ -9,7 +9,11 @@ public class GestaoHospitalar {
 
         Paciente pacientes[] = new Paciente[100];
         Medico medicos[] = new Medico[100];
-        //String estados[] = new EstadoAtendimento[10];
+        EstadoAtendimento estados[] = new EstadoAtendimento[10];       
+        
+        for (int i = 0; i < EstadoAtendimento.values().length; i++) {
+            estados[i] = EstadoAtendimento.values()[i];
+        }
         
         GerenciaMedicos gm = new GerenciaMedicos(medicos);
         GerenciaPacientes gp = new GerenciaPacientes(pacientes);
@@ -106,7 +110,7 @@ public class GestaoHospitalar {
 
                             switch(op3){
                                 case 1:
-//                                    gea.alterarEstadoPaciente(medicoLogado, pacientes, estados);
+                                    gea.atualizarEstadoPaciente(medicoLogado, pacientes, estados);
                             }
                         }while(op3 != 2);
                     }
@@ -114,7 +118,7 @@ public class GestaoHospitalar {
                 case 4:
                     do{
                         System.out.println("--==[Estados de Atendimento]==--");
-                        System.out.println("1 - Adicionar");
+                        System.out.println("1 - Cadastrar");
                         System.out.println("2 - Excluir");
                         System.out.println("3 - Relatório");
                         System.out.println("4 - Voltar ao menu principal");
@@ -129,9 +133,9 @@ public class GestaoHospitalar {
                                 break;
 
                             case 2:
-                                System.out.println("Digite uma posição para excluir do estado");
+                                System.out.println("Digite uma posição para excluir do estado:");
                                 pos = e.nextInt();
-                                gea.excluirEstadoPelaPosicao(pos);
+                                gea.excluirEstado(pos);
                                 break;
                             case 3:
                                 gea.listarEstados();
